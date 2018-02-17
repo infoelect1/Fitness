@@ -5,6 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
+import {
+  MatButtonModule,
+  MatSelectModule,
+  MatOptionModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatSnackBarModule,
+  MatMenuModule
+ } from '@angular/material';
 
 import { environment } from '../environments/environment';
 
@@ -15,7 +24,14 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    MatButtonModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSnackBarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
