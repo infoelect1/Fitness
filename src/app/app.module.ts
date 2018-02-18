@@ -5,33 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
-import {
-  MatButtonModule,
-  MatSelectModule,
-  MatOptionModule,
-  MatToolbarModule,
-  MatIconModule,
-  MatSnackBarModule,
-  MatMenuModule
- } from '@angular/material';
 
 import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { CoreModule } from './core/core.module';
+import { MenuComponent } from './core/menu/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-    MatButtonModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSnackBarModule,
-    MatMenuModule
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
