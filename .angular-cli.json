@@ -10,6 +10,7 @@
       "assets": [
         "assets",
         "manifest.json",
+        "firebase-messaging-sw.js",
         "favicon.ico"
       ],
       "index": "index.html",
@@ -61,8 +62,8 @@
       "spec": false
     },
     "component": {
-      "inlineStyle": false,
-      "inlineTemplate": true,
+      "inlineStyle": true,
+      "inlineTemplate": false,
       "spec": false
     },
     "directive": {
