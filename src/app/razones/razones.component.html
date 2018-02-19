@@ -1,0 +1,22 @@
+<h2>Razones para estar en el plan</h2>
+
+<mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="nombre">
+    <mat-header-cell *matHeaderCellDef> Razón </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="detalle">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </mat-header-cell>
+    <mat-cell *matCellDef="let hacker"> {{ hacker.detalle }} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="edit">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Seleccionar </mat-header-cell>
+    <mat-cell *matCellDef="let hacker"> 
+      <button mat-raised-button  color="primary" (click)="editar(hacker)">Seleccionar</button> 
+    </mat-cell>
+</ng-container>
+
+  <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+</mat-table>
+<app-razon-formulario [razonEditada]='razonSeleccionada'></app-razon-formulario>

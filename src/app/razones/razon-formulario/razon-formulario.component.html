@@ -1,0 +1,13 @@
+<h3>Formulario de Razones</h3>
+<div *ngIf="razonEditada">
+  <mat-form-field>
+    <input matInput [(ngModel)]="razonEditada.nombre" placeholder="Ingrese Razon">
+  </mat-form-field><br>
+  <mat-form-field>
+    <textarea matInput [(ngModel)]="razonEditada.detalle" cols="80" rows="4" placeholder="Ingrese detalles"></textarea>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button (click)="crearRazon()">Nueva</button>
+    <button mat-raised-button (click)="grabarRazon()">Grabar</button>
+    <button mat-raised-button (click)="borrarRazon()">Eliminar</button>
+</div>

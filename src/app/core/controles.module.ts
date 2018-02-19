@@ -7,7 +7,10 @@ import {
     MatToolbarModule,
     MatIconModule,
     MatSnackBarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTableModule,
+    MatInputModule,
+    
 } from '@angular/material';
 
 @NgModule({
@@ -19,7 +22,9 @@ import {
         MatToolbarModule,
         MatIconModule,
         MatSnackBarModule,
-        MatMenuModule
+        MatMenuModule,
+        MatTableModule,
+        MatInputModule
     ],
     exports: [
         BrowserAnimationsModule,
@@ -29,7 +34,9 @@ import {
         MatToolbarModule,
         MatIconModule,
         MatSnackBarModule,
-        MatMenuModule
+        MatMenuModule,
+        MatTableModule,
+        MatInputModule
     ]
 })
 export class ControlesModule { }

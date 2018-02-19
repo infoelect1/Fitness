@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
+import { RazonService } from '../razones/razon.service';
 
 interface User {
   uid: string;
@@ -18,12 +19,14 @@ export class AuthService {
   user: Observable<User>;
   constructor(private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
+    private razonService: RazonService,
     private router: Router) {
 
     this.user = this.afAuth.authState
       .switchMap(user => {
         if (user) {
-          return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
+          this.razonService.usuarioID = user.uid;
+          return this.afs.doc<User>(`usuarios/${user.uid}`).valueChanges()
         } else {
           return Observable.of(null)
         }
@@ -44,7 +47,8 @@ export class AuthService {
 
 
   private updateUserData(user) {
-   const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+    this.razonService.usuarioID = user.uid;
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`usuarios/${user.uid}`);
 
     const data: User = {
       uid: user.uid,
